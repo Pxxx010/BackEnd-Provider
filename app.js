@@ -7,6 +7,7 @@ const dotenv = require('dotenv');
 const connectDB = require('./config/database');
 
 const userCoorRoutes = require('./routes/userCoorRoutes');
+const userTecnicoRoutes = require('./routes/userTecnicoRoutes');
 const coordenadorRoutes = require('./routes/coordenadorRoutes');
 const tecnicoRoutes = require('./routes/tecnicoRoutes');
 
@@ -38,6 +39,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api/admin', coordenadorRoutes);
 app.use('/api/tecnico', tecnicoRoutes);
 app.use('/api/admin/user', userCoorRoutes);
+app.use('/api/tecnico/user', userTecnicoRoutes);
 
 // Configuração da Porta
 const PORT = process.env.PORT || 3000;
