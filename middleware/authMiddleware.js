@@ -18,6 +18,7 @@ module.exports = async (req, res, next) => {
   try {
     const decoded = jwt.verify(token, config.secret);
     req.user = await User.findById(decoded.id);
+    
     if (!req.user || (req.user.cargo != "Gerente" && req.user.cargo != "Adm")) {
       return res.status(401).json({ message: 'Usuário não autorizado, autorização negada' });
     }
