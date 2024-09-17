@@ -11,6 +11,7 @@ const userTecnicoRoutes = require('./routes/userTecnicoRoutes');
 const coordenadorRoutes = require('./routes/coordenadorRoutes');
 const tecnicoRoutes = require('./routes/tecnicoRoutes');
 const chamadoRoutes = require('./routes/chamadosRoutes');
+const historicoRoutes = require('./routes/historicoRoutes');
 
 // Carregar variáveis de ambiente do arquivo .env
 dotenv.config();
@@ -46,6 +47,7 @@ app.use('/api/tecnico', tecnicoRoutes);
 app.use('/api/admin/user', userCoorRoutes);
 app.use('/api/tecnico/user', userTecnicoRoutes);
 app.use('/api/chamado', chamadoRoutes);
+app.use/('/api/historico', historicoRoutes);
 
 // Configuração da Porta
 const PORT = process.env.PORT || 3000;
