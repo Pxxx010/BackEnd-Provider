@@ -10,6 +10,7 @@ const userCoorRoutes = require('./routes/userCoorRoutes');
 const userTecnicoRoutes = require('./routes/userTecnicoRoutes');
 const coordenadorRoutes = require('./routes/coordenadorRoutes');
 const tecnicoRoutes = require('./routes/tecnicoRoutes');
+const chamadoRoutes = require('./routes/chamadosRoutes');
 
 // Carregar variáveis de ambiente do arquivo .env
 dotenv.config();
@@ -36,10 +37,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Rotas
+
+// Cadastro dos User
 app.use('/api/admin', coordenadorRoutes);
 app.use('/api/tecnico', tecnicoRoutes);
+
+// Obter Informações
 app.use('/api/admin/user', userCoorRoutes);
 app.use('/api/tecnico/user', userTecnicoRoutes);
+app.use('/api/chamado', chamadoRoutes);
 
 // Configuração da Porta
 const PORT = process.env.PORT || 3000;
