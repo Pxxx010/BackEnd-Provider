@@ -9,7 +9,7 @@ router.get('/', getChamado);
 
 router.get('/:id', getChamadoById);
 
-router.put('/:id', authMiddleware, updateChamado);
+router.put('/:id', updateChamado);
 
 router.delete('/:id', authMiddleware, deleteChamado);
 
