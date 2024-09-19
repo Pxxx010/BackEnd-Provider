@@ -1,13 +1,13 @@
 const jwt = require('jsonwebtoken');
-const User = require('../models/tecnicoModel');
+const User = require('../models/userModel');
 const config = require('../config/jwt');
 
 exports.register = async (req, res) => {
   try {
-    const { nome, email, senha, telefone, coordenadorId } = req.body;
-    const user = new User({ nome, email, senha, telefone, coordenadorId });
+    const { nome, email, senha, telefone, cargo } = req.body;
+    const user = new User({ nome, email, senha, telefone, cargo });
     await user.save();
-    res.status(201).json({ message: 'Técnico registrado com sucesso!' });
+    res.status(201).json({ message: 'User registrado com sucesso!'});
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -20,8 +20,8 @@ exports.login = async (req, res) => {
     if (!user || !(await user.comparesenha(senha))) {
       return res.status(401).json({ message: 'Credenciais inválidas' });
     }
-    const token = jwt.sign({ id: user._id}, config.secret, {expiresIn: '5m'});
-    res.json({ token });
+    const token = jwt.sign({ id: user._id, cargo: user.cargo }, config.secret, {expiresIn: '1h'});
+    res.json({ token, id: user._id });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

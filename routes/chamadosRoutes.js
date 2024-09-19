@@ -3,7 +3,7 @@ const { createChamado ,getChamado, getChamadoById, updateChamado, deleteChamado 
 const authMiddleware = require('../middleware/authMiddleware');
 const router = express.Router();
 
-router.post('/', createChamado);
+router.post('/', authMiddleware, createChamado);
 
 router.get('/', getChamado);
 

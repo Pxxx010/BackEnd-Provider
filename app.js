@@ -6,10 +6,8 @@ const helmet = require('helmet');
 const dotenv = require('dotenv');
 const connectDB = require('./config/database');
 
-const userCoorRoutes = require('./routes/userCoorRoutes');
-const userTecnicoRoutes = require('./routes/userTecnicoRoutes');
-const coordenadorRoutes = require('./routes/coordenadorRoutes');
-const tecnicoRoutes = require('./routes/tecnicoRoutes');
+const userPushRoutes = require('./routes/usersPushRouter');
+const usersRoutes = require('./routes/usersRoutes');
 const chamadoRoutes = require('./routes/chamadosRoutes');
 const historicoRoutes = require('./routes/historicoRoutes');
 
@@ -40,12 +38,10 @@ app.use(express.urlencoded({ extended: true }));
 // Rotas
 
 // Cadastro dos User
-app.use('/api/admin', coordenadorRoutes);
-app.use('/api/tecnico', tecnicoRoutes);
+app.use('/api/admin', usersRoutes);
 
 // Obter Informações
-app.use('/api/admin/user', userCoorRoutes);
-app.use('/api/tecnico/user', userTecnicoRoutes);
+app.use('/api/user', userPushRoutes);
 app.use('/api/chamado', chamadoRoutes);
 app.use/('/api/historico', historicoRoutes);
 
