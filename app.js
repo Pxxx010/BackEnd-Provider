@@ -43,7 +43,7 @@ app.use('/api/admin', usersRoutes);
 // Obter Informações
 app.use('/api/user', userPushRoutes);
 app.use('/api/chamado', chamadoRoutes);
-app.use/('/api/historico', historicoRoutes);
+app.use('/api/historico', historicoRoutes);
 
 // Configuração da Porta
 const PORT = process.env.PORT || 3000;

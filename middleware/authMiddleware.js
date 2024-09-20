@@ -20,7 +20,7 @@ module.exports = async (req, res, next) => {
     
     if (req.method === 'POST' || req.method === 'GET') {
 
-      if (req.user.cargo === "Gerente" || req.user.cargo === "Adm") {
+      if (req.user.cargo !== 'Gerente' && req.user.cargo !== 'Adm' && req.user.cargo !== 'Tecnico') {
         return res.status(401).json({ message: 'Usuário não autorizado, autorização negada' });
       }
 
@@ -30,7 +30,7 @@ module.exports = async (req, res, next) => {
 
     if (req.method === 'DELETE' || req.method === 'PUT') {
 
-      if (req.user.cargo === "Gerente" || req.user.cargo === "Adm") {
+      if (req.user.cargo !== 'Gerente' && req.user.cargo !== 'Adm') {
         return res.status(401).json({ message: 'Usuário não autorizado, autorização negada' });
       }
 

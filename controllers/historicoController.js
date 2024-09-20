@@ -2,13 +2,14 @@ const Historico = require('../models/historicoModel');
 
 exports.createHistorico = async (req, res) => {
   try {
-    const chamado = new Historico(req.body);
-    await chamado.save();
-    res.status(201).json(chamado);
+      const chamado = new Historico(req.body);
+      await chamado.save();
+      res.status(201).json(chamado);
   } catch (error) {
-    res.status(400).json({ error: error.message });
+      res.status(400).json({ error: error.message });
   }
 };
+
 
 exports.getHistorico = async (req, res) => {
     try{
