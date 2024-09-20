@@ -6,6 +6,10 @@ const ChamadoSchema = new mongoose.Schema({
   responsavelId: { type: String},
   categoria: { type: String},
   descricao: { type: String, required: true },
+  localizacao: {
+    latitude: { type: Number, required: true },
+    longitude: { type: Number, required: true }
+  },
   status: { type: String, enum: ["aberto", "em andamento", "concluído"], default: "aberto" }
 }, { timestamps: true });
 
