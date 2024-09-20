@@ -4,9 +4,9 @@ exports.createChamado = async (req, res) => {
   try {
     const chamado = new Chamado(req.body);
     await chamado.save();
-    res.status(201).json(chamado);
+    return res.status(201).json(chamado);
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    return res.status(400).json({ error: error.message });
   }
 };
 
