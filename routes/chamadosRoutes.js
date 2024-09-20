@@ -5,11 +5,11 @@ const router = express.Router();
 
 router.post('/', authMiddleware, createChamado);
 
-router.get('/', getChamado);
+router.get('/', authMiddleware, getChamado);
 
-router.get('/:id', getChamadoById);
+router.get('/:id', authMiddleware, getChamadoById);
 
-router.put('/:id', updateChamado);
+router.put('/:id', authMiddleware, updateChamado);
 
 router.delete('/:id', authMiddleware, deleteChamado);
 

@@ -3,11 +3,11 @@ const { createHistorico ,getHistorico, getHistoricoById, updateHistorico, delete
 const authMiddleware = require('../middleware/authMiddleware');
 const router = express.Router();
 
-router.post('/', createHistorico);
+router.post('/', authMiddleware, createHistorico);
 
-router.get('/', getHistorico);
+router.get('/', authMiddleware, getHistorico);
 
-router.get('/:id', getHistoricoById);
+router.get('/:id', authMiddleware, getHistoricoById);
 
 router.put('/:id', authMiddleware, updateHistorico);
 
